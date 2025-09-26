@@ -1,0 +1,28 @@
+================================================
+         CONTACT INFORMATION FORM
+================================================
+
+Submitted Date: January 15, 2024
+Reference ID: CONT-2024-0156
+
+PERSONAL DETAILS
+----------------
+Full Name:        Sarah Johnson
+Email Address:    sarah.johnson@email.com
+Phone Number:     (555) 987-6543
+
+MAILING ADDRESS
+---------------
+Street:          456 Oak Street, Apartment 2B
+City:            Boston
+State:           MA
+ZIP Code:        02108
+
+COMPANY INFORMATION
+-------------------
+Company:         Digital Marketing Solutions LLC
+Position:        Marketing Manager
+
+================================================
+Form Status: Completed and Verified
+================================================

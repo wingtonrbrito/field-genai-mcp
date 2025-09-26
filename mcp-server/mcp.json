@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "field-genai": {
+      "command": "node",
+      "args": ["./dist/index.js"],
+      "env": {
+        "UPLOADCARE_PUBLIC_KEY": "${UPLOADCARE_PUBLIC_KEY}",
+        "UPLOADCARE_SECRET_KEY": "${UPLOADCARE_SECRET_KEY}",
+        "GOOGLE_AI_STUDIO_API_KEY": "${GOOGLE_AI_STUDIO_API_KEY}",
+        "GOOGLE_CLOUD_PROJECT_ID": "${GOOGLE_CLOUD_PROJECT_ID}",
+        "GOOGLE_CLOUD_PROCESSOR_ID": "${GOOGLE_CLOUD_PROCESSOR_ID}",
+        "GOOGLE_APPLICATION_CREDENTIALS_JSON": "${GOOGLE_APPLICATION_CREDENTIALS_JSON}"
+      }
+    }
+  }
+}

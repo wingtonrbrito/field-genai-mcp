@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice #2024-001</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: white;
+            color: #333;
+        }
+        .invoice {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2c3e50;
+        }
+        .company-info h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 36px;
+        }
+        .invoice-details {
+            text-align: right;
+        }
+        .invoice-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .billing-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        .info-block {
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .total-row {
+            font-weight: bold;
+            font-size: 18px;
+            background: #ecf0f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="header">
+            <div class="company-info">
+                <h1>ACME Corporation</h1>
+                <p>789 Business Boulevard<br>
+                Chicago, IL 60601<br>
+                Phone: (555) 246-8135<br>
+                Email: billing@acmecorp.com</p>
+            </div>
+            <div class="invoice-details">
+                <div class="invoice-number">INVOICE #2024-001</div>
+                <p>Date: January 20, 2024<br>
+                Due Date: February 20, 2024</p>
+            </div>
+        </div>
+
+        <div class="billing-info">
+            <div class="bill-to">
+                <div class="section-title">Bill To:</div>
+                <div class="info-block">
+                    <strong>Michael Chen</strong><br>
+                    Innovative Solutions Inc.<br>
+                    321 Market Street, Suite 500<br>
+                    Seattle, WA 98101<br>
+                    Phone: (555) 369-2580<br>
+                    Email: m.chen@innovativesolutions.com
+                </div>
+            </div>
+            <div class="ship-to">
+                <div class="section-title">Ship To:</div>
+                <div class="info-block">
+                    Same as billing address
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Professional Services - Consulting</td>
+                    <td>40 hours</td>
+                    <td>$150.00</td>
+                    <td>$6,000.00</td>
+                </tr>
+                <tr>
+                    <td>Software License - Annual</td>
+                    <td>5 users</td>
+                    <td>$299.00</td>
+                    <td>$1,495.00</td>
+                </tr>
+                <tr>
+                    <td>Training Workshop</td>
+                    <td>2 days</td>
+                    <td>$1,200.00</td>
+                    <td>$2,400.00</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3">Total Amount Due</td>
+                    <td>$9,895.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 40px; padding: 20px; background: #ecf0f1; border-radius: 5px;">
+            <strong>Payment Instructions:</strong><br>
+            Please make payment to ACME Corporation<br>
+            Bank: First National Bank<br>
+            Account: 123456789<br>
+            Reference: INV-2024-001
+        </div>
+    </div>
+</body>
+</html>

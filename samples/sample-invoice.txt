@@ -1,0 +1,46 @@
+========================================================
+                    INVOICE #2024-001
+========================================================
+
+FROM: ACME Corporation
+      789 Business Boulevard
+      Chicago, IL 60601
+      Phone: (555) 246-8135
+      Email: billing@acmecorp.com
+
+TO:   Michael Chen
+      Innovative Solutions Inc.
+      321 Market Street, Suite 500
+      Seattle, WA 98101
+      Phone: (555) 369-2580
+      Email: m.chen@innovativesolutions.com
+
+========================================================
+INVOICE DETAILS
+========================================================
+Invoice Date:    January 20, 2024
+Due Date:        February 20, 2024
+Invoice Number:  2024-001
+
+SERVICES RENDERED:
+------------------
+1. Professional Services - Consulting
+   40 hours @ $150.00/hour = $6,000.00
+
+2. Software License - Annual
+   5 users @ $299.00/user = $1,495.00
+
+3. Training Workshop
+   2 days @ $1,200.00/day = $2,400.00
+
+========================================================
+TOTAL AMOUNT DUE: $9,895.00
+========================================================
+
+Payment Instructions:
+Please make payment to ACME Corporation
+Bank: First National Bank
+Account: 123456789
+Reference: INV-2024-001
+
+Thank you for your business!

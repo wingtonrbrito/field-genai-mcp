@@ -1,0 +1,19 @@
+================================
+        BUSINESS CARD
+================================
+
+John Smith
+Senior Software Engineer
+
+TechCorp Industries
+
+Contact Information:
+-------------------
+Email: john.smith@techcorp.com
+Phone: (555) 123-4567
+
+Address:
+123 Innovation Drive
+San Francisco, CA 94105
+
+================================
