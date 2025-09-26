@@ -1,144 +1,180 @@
-# Field AI - Smart Form Auto-Population
+# Field GenAI MCP - Intelligent Multi-Document Processing
 
-An AI-powered form application that automatically extracts and populates contact information from documents using Google Document AI and Gemini. Perfect as a starting point for projects that need intelligent form filling capabilities.
+An advanced version of Field AI that uses MCP (Model Context Protocol) to enable intelligent multi-document processing with conversational AI.
 
-## Features
+## 🚀 What's New with MCP Integration
 
-- 🤖 **AI-Powered Extraction**: Uses Google Gemini AI to intelligently extract contact information from documents
-- 📄 **PDF Processing**: Upload PDF documents for automatic data extraction
-- 🖼️ **Image Support**: Process images containing text and forms
-- 📝 Simple, generic form fields (First Name, Last Name, Phone, Email, Address)
-- ✨ **Smart Auto-Population**: AI automatically fills form fields from uploaded documents
-- ✅ Form validation
-- 💾 Export form data as JSON
-- 🔄 Reset functionality
-- 🎨 Clean, modern UI with Mantine components
-- 📱 Responsive design
+### The Problem We're Solving
+When you have multiple documents (invoices, contracts, forms, emails, etc.) and need to extract specific information, manually selecting the right document is tedious. This system uses AI to:
+- **Understand** what information you need
+- **Search** through all your documents
+- **Find** the most relevant document automatically
+- **Extract** the required fields
+- **Populate** your forms intelligently
 
-## Tech Stack
+## 🎯 Key Features
 
-- **Next.js 15** - React framework with App Router
-- **TypeScript** - Type safety
-- **tRPC** - End-to-end typesafe APIs
-- **Google Gemini AI** - Intelligent document understanding
-- **Google Document AI** (Optional) - Enhanced OCR and document processing
-- **Mantine UI** - Component library
-- **Tailwind CSS** - Utility-first CSS
+### 1. Multi-Document Upload
+- Upload multiple files at once via Uploadcare
+- Support for PDFs, images, Word docs, etc.
+- Automatic indexing and analysis
 
-## Getting Started
+### 2. Conversational AI Assistant
+- Chat with AI about your documents
+- Natural language queries: "Find the vendor's contact info"
+- AI understands context and finds the right document
+
+### 3. MCP Server Integration
+- Standardized protocol for AI-document interaction
+- Efficient document management and search
+- Real-time processing with streaming updates
+
+### 4. Intelligent Extraction
+- AI determines which document has the needed information
+- Combines data from multiple documents when necessary
+- No manual file selection required
+
+## 🏗️ Architecture
+
+```
+┌─────────────────┐     ┌──────────────┐     ┌─────────────┐
+│   Next.js App   │────▶│  MCP Server  │────▶│  Uploadcare │
+│   (Frontend)    │     │  (Middleware) │     │  (Storage)  │
+└─────────────────┘     └──────────────┘     └─────────────┘
+         │                      │
+         ▼                      ▼
+┌─────────────────┐     ┌──────────────┐
+│  Gemini Chat    │────▶│  Document AI │
+│     (AI)        │     │    (OCR)     │
+└─────────────────┘     └──────────────┘
+```
+
+## 🔧 How MCP Works Here
+
+The MCP server provides these tools to the AI:
+
+```javascript
+// Available MCP Tools
+{
+  "list_documents": "Show all uploaded documents",
+  "read_document": "Read a specific document",
+  "search_documents": "Search across all documents",
+  "analyze_document": "Extract structured data",
+  "compare_documents": "Compare multiple documents"
+}
+```
+
+When you chat with the AI:
+1. Your message goes to Gemini
+2. Gemini uses MCP tools to explore your documents
+3. MCP server interfaces with Uploadcare to access files
+4. AI finds and extracts the relevant information
+5. Form fields are automatically populated
+
+## 💬 Example Conversation
+
+```
+You: "I need to fill out a vendor registration form"
+
+AI: "I'll help you with that. Let me search through your documents...
+     I found 3 relevant documents:
+     - Invoice from TechCorp (has company details)
+     - Contract with TechCorp (has legal information)
+     - Email from John Smith (has contact details)
+
+     The invoice has the most complete vendor information.
+     Should I extract the details from there?"
+
+You: "Yes, and also find their tax ID if available"
+
+AI: "Extracting from the invoice... Found the tax ID in the contract.
+     Here's what I've gathered:
+     - Company: TechCorp Industries
+     - Address: 123 Innovation Drive, San Francisco, CA 94105
+     - Contact: John Smith
+     - Email: john.smith@techcorp.com
+     - Phone: (555) 123-4567
+     - Tax ID: 12-3456789
+
+     I'll populate these fields in your form now."
+```
+
+## 🛠️ Setup Instructions
 
 ### Prerequisites
-
 - Node.js 18+
-- npm or yarn
-- Google AI Studio API key (free) or Gemini API key
+- Uploadcare account
+- Google AI Studio API key
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/field-ai.git
-cd field-ai
-```
+# Clone the repository
+git clone [repository-url]
+cd field-genai-mcp
 
-2. Install dependencies:
-```bash
-npm install
-```
+# Install dependencies
+npm install --legacy-peer-deps
 
-3. Set up environment variables:
-```bash
+# Set up environment variables
 cp .env.example .env.local
 ```
 
-4. Add your Gemini/Google AI Studio API key to `.env.local`:
-```
-GOOGLE_AI_STUDIO_API_KEY=your_api_key_here
+### Environment Variables
+```env
+# AI Services
+GOOGLE_AI_STUDIO_API_KEY=your_key_here
+
+# Uploadcare
+UPLOADCARE_PUBLIC_KEY=your_public_key
+UPLOADCARE_SECRET_KEY=your_secret_key
+
+# MCP Server
+MCP_SERVER_PORT=3001
+MCP_SERVER_URL=http://localhost:3001
 ```
 
-5. Run the development server:
+### Running the Application
+
 ```bash
+# Start the MCP server
+npm run mcp:server
+
+# In another terminal, start the Next.js app
 npm run dev
+
+# Open http://localhost:3000
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
+## 🎓 Use Cases
 
-## Usage
+1. **Vendor Onboarding**: Upload invoices, contracts, emails → AI fills vendor forms
+2. **Customer Registration**: Upload business cards, letters → AI extracts contact info
+3. **Expense Reports**: Upload receipts → AI categorizes and extracts amounts
+4. **HR Documents**: Upload resumes, certificates → AI populates employee records
+5. **Legal Processing**: Upload contracts → AI extracts key terms and parties
 
-1. **Upload a Document**: Click or drag-and-drop a PDF or image file containing contact information
-2. **AI Processing**: The AI will automatically analyze the document and extract relevant information
-3. **Review & Edit**: Check the auto-populated fields and make any necessary corrections
-4. **Submit or Export**: Submit the form or export the data as JSON
+## 🔮 Future Enhancements
 
-### Testing with Sample Documents
+- [ ] Support for more storage providers (S3, Azure Blob)
+- [ ] Multi-language document support
+- [ ] Document templates and auto-classification
+- [ ] Bulk processing capabilities
+- [ ] Integration with CRM/ERP systems
+- [ ] Advanced analytics and insights
+- [ ] Voice interaction support
 
-The `/samples` folder contains ready-to-use test documents:
-- Open any HTML file in your browser and save as PDF (Ctrl/Cmd + P → Save as PDF)
-- Or take screenshots of the text files
-- Upload these to see the AI extraction in action
+## 🤝 Contributing
 
-### Form Fields:
-- **First Name** - Extracted from document
-- **Last Name** - Extracted from document
-- **Phone** - Any phone numbers found
-- **Email** - Email addresses detected
-- **Address** - Physical or mailing addresses
+This is an experimental project exploring MCP capabilities. Contributions welcome!
 
-### Features:
-- **AI Auto-Population**: Automatically fills form fields from uploaded documents
-- **Manual Entry**: Can also manually enter information without uploading
-- **Submit**: Process the form data
-- **Reset**: Clear all fields and start over
-- **Export JSON**: Download form data as a JSON file for integration
-
-## Project Structure
-
-```
-field-ai/
-├── src/
-│   ├── app/
-│   │   ├── page.tsx       # Main form component with AI integration
-│   │   ├── layout.tsx     # Root layout
-│   │   ├── providers.tsx  # tRPC and Mantine providers
-│   │   └── api/
-│   │       └── trpc/      # tRPC API endpoint
-│   ├── server/
-│   │   ├── api/           # tRPC configuration
-│   │   └── routers/       # API routes (form.ts handles AI extraction)
-│   └── utils/
-│       └── trpc.ts        # tRPC client utilities
-├── samples/               # Sample documents for testing
-│   ├── *.html             # HTML templates (convert to PDF)
-│   ├── *.txt              # Text samples for testing
-│   └── README.md          # Instructions for using samples
-├── public/                # Static assets
-├── package.json           # Dependencies
-├── .env.example           # Environment variables template
-└── README.md              # This file
-```
-
-## Customization
-
-This project is designed to be a starting point. You can easily:
-- Add more form fields and train the AI to extract them
-- Integrate with MCP (Model Context Protocol) for enhanced capabilities
-- Add Agent AI for more complex document understanding
-- Connect to databases for data persistence
-- Customize the extraction prompts in `/src/server/routers/form.ts`
-- Add support for more document types
-- Integrate with other AI services
-- Build industry-specific extraction logic
-
-## Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-
-## License
+## 📝 License
 
 MIT
 
-## Contributing
+## 🔗 Related Projects
 
-Feel free to fork this project and customize it for your needs. Pull requests are welcome!
+- [MCP Specification](https://modelcontextprotocol.io)
+- [Field AI (Original)](https://github.com/wingtonrbrito/field-ai)
+- [Uploadcare](https://uploadcare.com)
+- [Google Gemini](https://ai.google.dev)
